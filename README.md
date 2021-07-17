@@ -11,10 +11,10 @@ Title,Author,Year,ISBN
 
 User can:
 
-view all records
-Search an entry
-Add entry
-Update entry
-delete 
+view all records,
+Search an entry,
+Add entry,
+Update entry,
+delete ,
 close 
 
