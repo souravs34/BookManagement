@@ -1,18 +1,3 @@
-"""
-A program that stores this book information:
-Title,Author,Year,ISBN
-
-User can:
-
-view all records
-Search an entry
-Add entry
-Update entry
-delete 
-close 
-
-"""
-
 from tkinter import *
 import backend
 
@@ -31,8 +16,6 @@ def get_selected_row(event):
         e4.insert(END,selected_tuple[4])
     except IndexError:
         pass
-
-
 
 def view_command():
     list1.delete(0,END)
@@ -61,14 +44,14 @@ def update_command():
 
 window =Tk()
 
-window.wm_title("BOOKSTORE")
+window.wm_title("Library Management System")
 
-l1 = Label(window,text="Title")
+l1 = Label(window,text="Book Name")
 l1.grid(row=0,column=0)
 
 
 
-l2 = Label(window,text="Author")
+l2 = Label(window,text="Author Name")
 l2.grid(row=0,column=2)
 
 
@@ -77,9 +60,8 @@ l3 = Label(window,text="Year")
 l3.grid(row=1,column=0)
 
 
-l3 = Label(window,text="ISBN")
+l3 = Label(window,text="Unique Id")
 l3.grid(row=1,column=2)
-
 title_text=StringVar()
 e1 = Entry(window,textvariable=title_text)
 e1.grid(row=0,column=1)
