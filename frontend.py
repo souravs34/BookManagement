@@ -32,16 +32,13 @@ def add_command():
     list1.delete(0,END)
     list1.insert(END,(title_text.get(),author_text.get(),year_text.get(),ISBN_text.get()))
 
-
-
-
 def delete_command():
     backend.delete(selected_tuple[0])
 
 def update_command():
     backend.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),ISBN_text.get())
     
-
+# This wraps whole frontend-app
 window =Tk()
 
 window.wm_title("Library Management System")
@@ -50,11 +47,8 @@ l1 = Label(window,text="Book Name")
 l1.grid(row=0,column=0)
 
 
-
 l2 = Label(window,text="Author Name")
 l2.grid(row=0,column=2)
-
-
 
 l3 = Label(window,text="Year")
 l3.grid(row=1,column=0)
@@ -69,22 +63,22 @@ e1.grid(row=0,column=1)
 author_text=StringVar()
 e2 = Entry(window,textvariable=author_text)
 e2.grid(row=0,column=3)
-
+ISBN_text=StringVar()
+e4 = Entry(window,textvariable=ISBN_text)
+e4.grid(row=1,column=3)
 year_text=StringVar()
 e3 = Entry(window,textvariable=year_text)
 e3.grid(row=1,column=1)
 
-ISBN_text=StringVar()
-e4 = Entry(window,textvariable=ISBN_text)
-e4.grid(row=1,column=3)
 
-list1 = Listbox(window,height=6,width=35)
-list1.grid(row=2,column=0,rowspan=6,columnspan=2)
+
+list1 = Listbox(window,height=12,width=30)
+list1.grid(row=2,column=0,rowspan=12,columnspan=2)
 
 
 #createscrollbar inside in the listbox
 sb1=Scrollbar(window)
-sb1.grid(row=2,column=2,rowspan=6)
+sb1.grid(row=2,column=2,rowspan=12)
  
 #create the actions of the scrollbar
 list1.configure(yscrollcommand=sb1) #place the scrollbar in the y axis (sb1 inside list 1)
@@ -93,22 +87,22 @@ sb1.configure(command=list1.yview)
 list1.bind('<<ListboxSelect>>',get_selected_row)
 
 
-b1=Button(window,text="View All",width=12,command=view_command)
+b1=Button(window,text="View All Books",width=20,command=view_command)
 b1.grid(row=2,column=3)
 
-b2=Button(window,text="Search Entry",width=12,command=search_command)
-b2.grid(row=3,column=3)
+b2=Button(window,text="Search Book",width=20,command=search_command)
+b2.grid(row=4,column=3)
 
-b3=Button(window,text="Add Entry",width=12,command=add_command)
-b3.grid(row=4,column=3)
+b3=Button(window,text="Add Book",width=20,command=add_command)
+b3.grid(row=6,column=3)
 
-b4=Button(window,text="Update Selected",width=12,command=update_command)
-b4.grid(row=5,column=3)
+b4=Button(window,text="Update Book Data",width=20,command=update_command)
+b4.grid(row=8,column=3)
 
-b5=Button(window,text="Delete Selected",width=12,command=delete_command)
-b5.grid(row=6,column=3)
+b5=Button(window,text="Delete Book",width=20,command=delete_command)
+b5.grid(row=10,column=3)
 
-b6=Button(window,text="Close",width=12,command=window.destroy)
-b6.grid(row=7,column=3)
+b6=Button(window,text="Close Window",width=20,command=window.destroy)
+b6.grid(row=12,column=3)
 
 window.mainloop()
