@@ -45,7 +45,6 @@ window.wm_title("Library Management System")
 
 
 
-
 l1 = Label(window,text="Book Name",font=('Helvetica', 10, 'bold'),bg='black',foreground="yellow")
 l1.grid(row=0,column=0)
 
